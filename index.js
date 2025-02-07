@@ -18,11 +18,12 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/taskmanagement");
+    await mongoose.connect(`mongodb+srv://companywebsite:Avi123%40%40@taskmanagement.qnttd.mongodb.net/taskmanagement?retryWrites=true&w=majority&appName=TaskManagement`);
+    console.log(mongoose.connection.host);
 }
 
 main().then((res)=>{
-    console.log(res);
+    console.log(res); 
 }).catch((err)=>{
     console.log(err);
 });
