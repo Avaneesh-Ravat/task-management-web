@@ -1,0 +1,28 @@
+label{
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.register-form{
+    margin: 5rem;
+    flex: 1;
+}
+
+input{
+    height: 1.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 0.5rem;
+    width: 40%;
+}
+.register-form button{
+    width: 8rem;
+    height: 2rem;
+    background-color: #40c0d7;
+    border-radius: 0.5rem;
+}
+
+p{
+    color: #ff0000;
+}

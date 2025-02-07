@@ -1,0 +1,11 @@
+.task-table .th-date{
+    width: 18%;
+}
+
+.task-table .th-task{
+    width: 38%;
+}
+
+.selected-task{
+    width: 85%;
+}

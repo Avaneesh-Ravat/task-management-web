@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/weekDue.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="nav">
+            <div class="user-name"><h2>User:<br><%= name %></h2></div>
+            <div class="btn current-choice"><h2>My tasks</h2></div>
+        </div>
+        <div class="task-container">
+            <div class="selected-task">
+                <div class="task-heading">
+                    <h2>Overdue Taks</h2>
+                </div>
+                <div class="task-table">
+                    <div class="tr">
+                        <div class="th-task th"><h3>Tasks</h3></div>
+                        <div class="th-priority th"><h3>Priority</h3></div>
+                        <div class="th-status th"><h3>Status</h3></div>
+                        <div class="th-date th"><h3>Due Date</h3></div>
+                    </div>
+                    <% for(task of tasks){ %>
+                        <div class="tr">
+                            <div class="th-task td"><p><%= task.task %></p></div>
+                            <div class="th-priority td" id="priority"><p><%= task.priority %></p></div>
+                            <div class="th-status td"><p><%= task.status %></p></div>
+                            <div class="th-date td"><p><%= task.date %></p></div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="task-options">
+                <form action="/tasks/<%= id %>" method="get">
+                    <button class="btn week-due"><h2>Due today</h2></button>
+                </form>
+                <form action="/week-due/<%= id %>" method="get">
+                    <button class="btn week-due"><h2>Due this week</h2></button>
+                </form>
+                <form method="get" action="/tasks/new/<%= id %>">
+                    <button class="btn add-task"><h2>Add Task</h2></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        let task = document.querySelector(".th-task");
+        let priority = document.querySelector(".th-priority");
+        let status = document.querySelector(".th-status");
+
+        priority.style.height = task.offsetHeight + "px";
+        status.style.height = task.offsetHeight + "px";
+
+        document.querySelectorAll(".tr").forEach(row => {
+            const priority = row.querySelector(".th-priority").innerText;
+            console.log(priority);
+            row.querySelectorAll(".td").forEach(data=>{
+                if (priority === "High") {
+                    data.classList.add("high-task");
+                } else if (priority === "Medium") {
+                    data.classList.add("medium-task");
+                } else if (priority === "Low") {
+                    data.classList.add("low-task");
+                }
+            });
+
+            
+        });
+
+    };
+
+</script>
+</html>

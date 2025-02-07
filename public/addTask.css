@@ -1,0 +1,47 @@
+.form{
+    border: 1px solid white;
+    height: 30rem;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+}
+
+.selected-task{
+    width: 100%;
+}
+
+label{
+    color: white;
+    font-weight: 500;
+    font-size: 1.5rem;
+    
+}
+
+.input{
+    width: 80%;
+    padding: 0.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 0.5rem;
+}
+
+.radio-btn{
+    font-size: 1rem;
+}
+
+.left-form{
+    flex: 2;
+}
+
+.right-form{
+    flex: 1;
+}
+
+.submit-btn{
+    width: 80%;
+    height: 2rem;
+    background-color: #34cddc;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+

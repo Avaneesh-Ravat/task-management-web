@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-color: #6088b7;
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    min-height: 100vh;
+    /* justify-content: space-between; */
+    
+}
+
+.nav{
+    width: 15%;
+    margin: 1.5rem 1rem;
+}
+
+.task-container{
+    margin: 1.5rem 1rem;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #376090;
+}
+
+.selected-task{
+    width: 65%;
+    margin: 2.5rem;
+}
+
+.task-options{
+    width: 25%;
+    margin: 2.5rem;
+    margin-left: 0;
+    
+}
+
+.task-heading{
+    padding: 0.5rem 1rem;
+    width: 15rem;
+    background-color: #7ed957;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.task-table{
+    border: 1px solid black;
+    width: 100%;
+    flex: 1;
+}
+
+.task-table .tr{
+    display: flex;
+}
+
+.task-table .tr .th{
+    height: 2rem;
+    background-color: #ffffff;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 2rem;
+}
+
+.task-table .th-task{
+    width: 58%;
+} 
+
+.task-table .th-priority{
+    width: 18%;
+}
+
+.task-table .th-status{
+    width: 18%;
+}
+
+.task-table .high-task{
+    background-color: #e29b88;
+    min-height: 1.5rem;
+}
+
+.task-table .tr{
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-table .tr .td{
+    min-height: 3rem;
+    margin: 2px 0;
+    border-radius: 4px;
+    /* padding: 2px; */
+}
+
+.task-table .tr .td p{
+    margin: 2px;
+}
+
+.task-table .medium-task{
+    background-color: #dbd18d;
+    min-height: 1.5rem;
+}
+
+.task-table .low-task{
+    background-color: #74b35a;
+    min-height: 1.5rem;
+}
+
+.task-options .btn{
+    padding: 0.5rem 1rem;
+    width: 12rem;
+    background-color: #7ed957;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.task-options .week-due{
+    background-color: #40c0d7;
+}
+
+.task-options .over-due{
+    background-color: #e55c5c;
+}
+
+.task-options .add-task{
+    background-color: #ffffff77;
+}
+
+.nav .btn{
+    width: 10rem;
+    background-color: #34cddc;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav .current-choice{
+    margin-top: 1.5rem;
+}
+
+.nav .options{
+    background-color: #ffffff;
+    font-family: 'Times New Roman', Times, serif ;
+    width: 10rem;
+}
+.user-name{
+    padding: 0.5rem 1rem 0;
+    color: #ffffff;
+}
