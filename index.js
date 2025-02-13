@@ -6,8 +6,6 @@ const User = require("./models/userSchema.js");
 const bcrypt = require("bcrypt");
 // const cors = require("cors"); 
 
-const moment = require("moment");
-
 const mongoose = require("mongoose");
 
 // app.use(cors);
