@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const methodOverride = require("method-override");
 const Task = require("./models/taskSchema.js");
 const User = require("./models/userSchema.js");
  
@@ -10,7 +11,8 @@ const mongoose = require("mongoose");
 
 // app.use(cors);
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true})); 
+app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -64,7 +66,7 @@ app.post("/user-login", async(req, res)=>{
         res.redirect(`/tasks/${user.id}`);
     }else{
         let msg="Invalid credentials!";
-        res.render("/login", {msg});
+        res.render("login.ejs", {msg});
     }
 
 });
@@ -87,7 +89,7 @@ app.get("/tasks/new/:id", (req, res)=>{
     let {id} = req.params;
     res.render("addTask.ejs", {id});
 });
-
+ 
 //to add new task
 app.post("/tasks/:id", async(req, res)=>{
     let {id} = req.params;
@@ -100,6 +102,31 @@ app.post("/tasks/:id", async(req, res)=>{
 });
 
 
+//delete task
+app.delete("/tasks/:taskId", async(req, res)=>{
+    let {taskId} = req.params; 
+    let {user_id} = await Task.findById(taskId);
+    await Task.findByIdAndDelete(taskId);
+    res.redirect(`/tasks/${user_id}`);
+});
+
+
+//edit task
+app.get("/tasks/edit/:taskId", async(req, res)=>{
+    let{taskId} = req.params;
+    let task =  await Task.findById(taskId);
+    res.render("editTask.ejs", {task});
+
+})
+
+app.patch("/tasks/:taskId", async(req, res)=>{
+    let {taskId} = req.params;
+    let{date, task, priority, status} = req.body;
+    let {user_id} = await Task.findById(taskId);
+    await Task.findByIdAndUpdate(taskId, {date, task, priority, status});
+    res.redirect(`/tasks/${user_id}`);
+}); 
+ 
 
 // due this week
 app.get("/week-due/:id", async(req, res)=>{

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
     <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
@@ -26,25 +27,67 @@
                     </div>
                     <% for(task of high_tasks){ %>
                         <div class="tr">
-                            <div class="th-task td high-task"><p><%= task.task %></p></div>
+                            <div class="th-task td high-task">
+                                <div class="task">
+                                    <form method="get" action="/tasks/edit/<%= task._id %>">
+                                        <button class="edit"><i class="fa-solid fa-pen-to-square"></i></button>   
+                                    </form>     
+                                    <p><%= task.task %></p>
+                                </div>
+                            </div>
                             <div class="th-priority td high-task"><p><%= task.priority %></p></div>
-                            <div class="th-status td high-task"><p><%= task.status %></p></div>
+                            <div class="th-status td high-task">
+                                <p><%= task.status %></p>
+                                <form method="post" action="/tasks/<%= task._id %>?_method=delete">
+                                    <button class="delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <% } %>
 
                     <% for(task of medium_tasks){ %>
                         <div class="tr">
-                            <div class="th-task td medium-task"><p><%= task.task %></p></div>
+                            <div class="th-task td medium-task">
+                                <div class="task">
+                                    <form method="get" action="/tasks/edit/<%= task._id %>">
+                                        <button class="edit"><i class="fa-solid fa-pen-to-square"></i></button>   
+                                    </form>     
+                                    <p><%= task.task %></p>
+                                </div>
+                            </div>
                             <div class="th-priority td medium-task"><p><%= task.priority %></p></div>
-                            <div class="th-status td medium-task"><p><%= task.status %></p></div>
+                            <div class="th-status td medium-task">
+                                <p><%= task.status %></p>
+                                <form method="post" action="/tasks/<%= task._id %>?_method=delete">
+                                    <button class="delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <% } %>
 
                     <% for(task of low_tasks){ %>
                         <div class="tr">
-                            <div class="th-task td low-task"><p><%= task.task %></p></div>
+                            <div class="th-task td low-task">
+                                <div class="task">
+                                    <form method="get" action="/tasks/edit/<%= task._id %>">
+                                        <button class="edit"><i class="fa-solid fa-pen-to-square"></i></button>   
+                                    </form>     
+                                    <p><%= task.task %></p>
+                                </div>
+                            </div>
                             <div class="th-priority td low-task"><p><%= task.priority %></p></div>
-                            <div class="th-status td low-task"><p><%= task.status %></p></div>
+                            <div class="th-status td low-task">
+                                <p><%= task.status %></p>
+                                <form method="post" action="/tasks/<%= task._id %>?_method=delete">
+                                    <button class="delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <% } %>
                 </div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/addTask.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="btn current-choice"><h2>My tasks</h2></div>
+        </div>
+        <div class="task-container">
+            <div class="selected-task">
+                <div class="task-heading">
+                    <h2>Add Task</h2>
+                </div>
+                <form action="/tasks/<%= task._id %>?_method=patch" method="post" class="form">
+                    <div class="left-form">
+                        <label for="date">Date: </label><br><br>
+                        <input type="date" id="date" name="date" placeholder="Select Date" class="input" value="<%= task.date %>" required><br><br>
+                        <label for="task">Task: </label><br><br>
+                        <textarea id="task" name="task" placeholder="Enter the task" rows="10" class="input" required><%= task.task %></textarea>
+                    </div>
+                    <div class="right-form">
+                        <label>Priority:</label><br><br>
+                        <input type="radio" id="high" name="priority" value="High" <%= task.priority === 'High' ? 'checked' : '' %> required>
+                        <label for="high" class="radio-btn">High</label><br>
+                        <input type="radio" id="low" name="priority" value="Low" <%= task.priority === 'Low' ? 'checked' : '' %> required>
+                        <label for="low" class="radio-btn">Low</label><br>
+                        <input type="radio" id="medium" name="priority" value="Medium" <%= task.priority === 'Medium' ? 'checked' : '' %> required>
+                        <label for="medium" class="radio-btn">Medium</label>
+
+                        <br>
+                        <br>
+                        <label>Status:</label><br><br>
+                        <input type="radio" id="in-progress" name="status" value="In Progress" <%= task.status === 'In Progress' ? 'checked' : '' %> required>
+                        <label for="in-progress" class="radio-btn">In Progress</label><br>
+                        <input type="radio" id="pending" name="status" value="Pending" <%= task.status === 'Pending' ? 'checked' : '' %> required>
+                        <label for="pending" class="radio-btn">Pending</label><br>
+                        <input type="radio" id="completes" name="status" value="Completed" <%= task.status === 'Completed' ? 'checked' : '' %> required>
+                        <label for="completes" class="radio-btn">Completed</label><br>
+                        <br>
+                        <button class="submit-btn">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
